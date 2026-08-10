@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Jhelmy & Victor | Nos Casamos</title>
+<meta name="description" content="Con el corazón lleno de alegría, los invitamos a celebrar nuestra boda.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- fondo 3D ambiental (Three.js) — vive detrás de toda la página -->
+<div id="webgl-bg" aria-hidden="true"></div>
+
+<!-- cursor premium (solo escritorio) -->
+<div class="cursor-brillo"></div>
+<div class="cursor-punto"></div>
+
+<!-- ============ PANTALLA DE BIENVENIDA (SELLO) ============ -->
+<section id="portada" class="portada">
+  <div class="portada-content">
+    <p class="eyebrow reveal">Con el corazón lleno de alegría</p>
+    <div class="sello" id="btnAbrir">
+      <svg viewBox="0 0 120 120" class="sello-svg">
+        <circle cx="60" cy="60" r="56" class="sello-circulo"/>
+        <text x="60" y="55" text-anchor="middle" class="sello-texto-cm">J &amp; V</text>
+        <text x="60" y="78" text-anchor="middle" class="sello-texto-fecha">14 · 11 · 2026</text>
+      </svg>
+    </div>
+    <p class="tap-hint reveal">Toca el sello dorado para descubrir los detalles</p>
+  </div>
+</section>
+
+<!-- ============ CONTENIDO PRINCIPAL ============ -->
+<div id="invitacion" class="invitacion oculto">
+
+  <!-- cristales cayendo -->
+  <div id="petals-container" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div id="rings-3d-mount" class="rings-mount reveal" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-kicker reveal">Una promesa eterna</p>
+      <h1 class="hero-names reveal"><span class="oro-texto">Jhelmy</span> <span class="amp">&amp;</span> <span class="oro-texto">Victor</span></h1>
+      <p class="hero-date reveal">14 de Noviembre, 2026</p>
+      <p class="hero-sub reveal">Los esperamos para celebrar el inicio de nuestra vida juntos.</p>
+    </div>
+    <div class="scroll-down reveal" aria-hidden="true"><span></span></div>
+  </header>
+
+  <!-- MENSAJE -->
+  <section class="seccion mensaje">
+    <div class="contenedor">
+      <span class="ornamento reveal">✦</span>
+      <p class="texto-elegante reveal">
+        Hay amores que no se explican, se sienten. El nuestro nació despacio y se quedó para siempre.
+        Hoy, rodeados de quienes más amamos, queremos convertir esa certeza en una promesa:
+        caminar juntos, cuidarnos siempre y construir, día a día, el hogar que soñamos.
+      </p>
+    </div>
+    <div class="divisor reveal">
+      <svg viewBox="0 0 200 20" class="divisor-svg" preserveAspectRatio="none">
+        <line x1="0" y1="10" x2="85" y2="10" class="divisor-linea"/>
+        <path d="M100 4 L106 10 L100 16 L94 10 Z" class="divisor-diamante"/>
+        <line x1="115" y1="10" x2="200" y2="10" class="divisor-linea"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- INVITADO PERSONALIZADO -->
+  <section class="seccion invitado-box">
+    <div class="contenedor tarjeta-invitado reveal glass">
+      <p class="tarjeta-label">Esta invitación fue creada especialmente para</p>
+      <h2 id="nombreInvitado" class="tarjeta-nombre">Nuestros Invitados Especiales</h2>
+      <p class="tarjeta-pases">Hemos reservado <strong id="numPases">2</strong> pase(s) en tu honor</p>
+    </div>
+  </section>
+
+  <!-- CONTADOR -->
+  <section class="seccion contador-seccion">
+    <div class="contenedor">
+      <p class="subtitulo reveal">Cuenta regresiva para el gran día</p>
+      <div id="contador" class="contador">
+        <div class="unidad reveal glass tilt-3d"><span id="dias">00</span><small>Días</small></div>
+        <div class="unidad reveal glass tilt-3d"><span id="horas">00</span><small>Horas</small></div>
+        <div class="unidad reveal glass tilt-3d"><span id="minutos">00</span><small>Min</small></div>
+        <div class="unidad reveal glass tilt-3d"><span id="segundos">00</span><small>Seg</small></div>
+      </div>
+      <a href="#" id="btnCalendario" class="btn-outline reveal">+ Agendar en Google Calendar</a>
+    </div>
+  </section>
+
+  <!-- NUESTRA HISTORIA -->
+  <section class="seccion historia">
+    <div class="contenedor">
+      <p class="subtitulo reveal">Nuestra Historia</p>
+      <h3 class="titulo-editorial reveal">Cada capítulo nos trajo hasta aquí</h3>
+    </div>
+    <div class="historia-timeline">
+      <div class="historia-item reveal glass">
+        <span class="historia-anio">2021</span>
+        <p>Un encuentro casual que cambió el rumbo de todo. Desde ese día, no dejamos de encontrar razones para estar juntos.</p>
+      </div>
+      <div class="historia-item reveal glass">
+        <span class="historia-anio">2022</span>
+        <p>El primer viaje que hicimos como equipo. Ahí entendimos que cualquier lugar se siente como casa cuando estamos juntos.</p>
+      </div>
+      <div class="historia-item reveal glass">
+        <span class="historia-anio">2024</span>
+        <p>Una promesa silenciosa bajo el cielo, mucho antes del anillo: la certeza de que queríamos el mismo futuro.</p>
+      </div>
+      <div class="historia-item reveal glass">
+        <span class="historia-anio">2026</span>
+        <p>Hoy decimos que sí, frente a quienes más amamos, para escribir juntos el resto de la historia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PADRES -->
+  <section class="seccion padres-seccion">
+    <div class="contenedor">
+      <p class="subtitulo reveal">Con la bendición de Dios y el amor de quienes nos formaron</p>
+      <div class="padres-grid reveal">
+        <div class="padres-col">
+          <h4>Padres del Novio</h4>
+          <p>Roberto Fernández</p>
+          <p>Elena Vargas de Fernández</p>
+        </div>
+        <div class="padres-col">
+          <h4>Padres de la Novia</h4>
+          <p>Jorge Salazar</p>
+          <p>Marina Rojas de Salazar</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CEREMONIA Y RECEPCIÓN -->
+  <section class="seccion eventos">
+    <div class="contenedor">
+      <p class="subtitulo reveal">Los detalles de nuestro día</p>
+      <div class="eventos-grid">
+        <div class="evento-card reveal glass tilt-3d">
+          <svg class="evento-icono-svg" viewBox="0 0 48 48" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="24" cy="30" r="11"/><path d="M17 21 L24 6 L31 21" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 21 L24 12.5 L27.5 21" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Ceremonia Religiosa</h3>
+          <p class="evento-hora">16:00 hrs.</p>
+          <p class="evento-lugar">Iglesia Nuestra Señora del Carmen</p>
+          <a class="btn-mini" href="https://www.google.com/maps?q=Iglesia+Nuestra+Se%C3%B1ora+del+Carmen" target="_blank" rel="noopener">Ver ubicación</a>
+        </div>
+        <div class="evento-card reveal glass tilt-3d">
+          <svg class="evento-icono-svg" viewBox="0 0 48 48" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M14 6 H34 L30 25 A6 6 0 0 1 18 25 L14 6 Z" stroke-linejoin="round"/><line x1="24" y1="25" x2="24" y2="38"/><line x1="16" y1="40" x2="32" y2="40"/>
+          </svg>
+          <h3>Recepción</h3>
+          <p class="evento-hora">18:30 hrs.</p>
+          <p class="evento-lugar">Salón de Eventos Jardín Real</p>
+          <a class="btn-mini" href="https://www.google.com/maps?q=Sal%C3%B3n+de+Eventos+Jard%C3%ADn+Real" target="_blank" rel="noopener">Ver ubicación</a>
+        </div>
+      </div>
+      <div class="mapa-embed reveal glass">
+        <iframe title="Mapa del evento" src="https://maps.google.com/maps?q=Plaza%20principal&t=m&z=14&output=embed&iwloc=near" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARIO -->
+  <section class="seccion itinerario">
+    <div class="contenedor">
+      <p class="subtitulo reveal">Así viviremos la noche</p>
+      <div class="timeline glass">
+        <div class="timeline-item reveal"><span class="timeline-hora">16:00</span><span class="timeline-texto">Ceremonia religiosa</span></div>
+        <div class="timeline-item reveal"><span class="timeline-hora">18:30</span><span class="timeline-texto">Recepción social</span></div>
+        <div class="timeline-item reveal"><span class="timeline-hora">19:30</span><span class="timeline-texto">Cena</span></div>
+        <div class="timeline-item reveal"><span class="timeline-hora">20:30</span><span class="timeline-texto">Primer baile &amp; fiesta</span></div>
+        <div class="timeline-item reveal"><span class="timeline-hora">01:00</span><span class="timeline-texto">Fin de la celebración</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section class="seccion dresscode">
+    <div class="contenedor">
+      <p class="subtitulo reveal">Código de vestimenta</p>
+      <h3 class="dresscode-titulo reveal">Elegante Formal</h3>
+      <div class="dresscode-grid reveal">
+        <div class="dresscode-col">
+          <p class="dresscode-cat">Damas</p>
+          <p>Vestido largo</p>
+        </div>
+        <div class="dresscode-col">
+          <p class="dresscode-cat">Caballeros</p>
+          <p>Traje formal</p>
+        </div>
+      </div>
+      <div class="paleta reveal" aria-hidden="true">
+        <span class="paleta-color" style="--c:#0f2c47"></span>
+        <span class="paleta-color" style="--c:#5ec3e8"></span>
+        <span class="paleta-color" style="--c:#d8b877"></span>
+        <span class="paleta-color" style="--c:#f3ede1"></span>
+      </div>
+      <p class="dresscode-nota reveal">El blanco y los tonos marfil los reservamos para la novia. Gracias por acompañarnos con la elegancia que este día merece.</p>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="seccion galeria">
+    <div class="contenedor">
+      <p class="subtitulo reveal">Nuestra historia en imágenes</p>
+      <div class="galeria-grid">
+        <div class="foto-placeholder reveal tilt-3d"><span>Foto 1</span></div>
+        <div class="foto-placeholder reveal tilt-3d"><span>Foto 2</span></div>
+        <div class="foto-placeholder reveal tilt-3d"><span>Foto 3</span></div>
+        <div class="foto-placeholder reveal tilt-3d"><span>Foto 4</span></div>
+      </div>
+      <p class="galeria-nota reveal">* Reemplaza estos bloques con las fotos reales de la pareja (ver README).</p>
+    </div>
+  </section>
+
+  <!-- HASHTAG -->
+  <section class="seccion hashtag">
+    <div class="contenedor reveal glass">
+      <p class="subtitulo">Comparte el momento</p>
+      <p class="hashtag-texto">#JhelmyYVictor2026</p>
+      <p class="texto-elegante">Etiqueta tus fotos y videos con nuestro hashtag para que no se pierda ni un solo recuerdo de este día.</p>
+    </div>
+  </section>
+
+  <!-- NIÑOS -->
+  <section class="seccion aviso">
+    <div class="contenedor reveal">
+      <p class="texto-elegante">Queremos que esta noche sea también un momento para disfrutar en pareja. Por eso, hemos dispuesto que la celebración sea exclusiva para adultos. Agradecemos infinitamente su comprensión.</p>
+    </div>
+  </section>
+
+  <!-- REGALOS -->
+  <section class="seccion regalos">
+    <div class="contenedor reveal">
+      <p class="subtitulo">Sugerencia de Regalos</p>
+      <p class="texto-elegante">Tu presencia es, sin duda, el regalo más valioso. Si deseas además acompañarnos con un detalle, dejamos disponible una mesa de regalos.</p>
+      <a href="#" class="btn-outline">Ver mesa de regalos</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="seccion faq">
+    <div class="contenedor">
+      <p class="subtitulo reveal">Preguntas Frecuentes</p>
+      <div class="faq-lista reveal glass">
+        <details class="faq-item">
+          <summary>¿Hasta qué fecha puedo confirmar mi asistencia?</summary>
+          <p>Agradecemos confirmar antes del 30 de octubre de 2026 a través del formulario de esta invitación.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Hay estacionamiento disponible?</summary>
+          <p>Sí, tanto la iglesia como el salón cuentan con espacio de estacionamiento para los invitados.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puedo llevar a mis hijos?</summary>
+          <p>Con mucho cariño, hemos decidido que esta celebración sea solo para adultos.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuál es el código de vestimenta?</summary>
+          <p>Elegante formal. El blanco y los tonos marfil están reservados para la novia.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="seccion rsvp" id="rsvp">
+    <div class="contenedor">
+      <p class="subtitulo reveal">Confirma tu Asistencia</p>
+      <p class="texto-elegante reveal">Contar contigo hará este día aún más especial. Te pedimos confirmar tu asistencia antes del 30 de octubre de 2026.</p>
+      <form id="formRSVP" class="form-rsvp reveal glass">
+        <label>Nombre completo
+          <input type="text" id="rsvpNombre" name="nombre" required placeholder="Tu nombre">
+        </label>
+        <label>¿Asistirás?
+          <select id="rsvpAsistencia" name="asistencia" required>
+            <option value="Sí, ahí estaré">Sí, ahí estaré 🎉</option>
+            <option value="No podré, lo siento">No podré, lo siento</option>
+          </select>
+        </label>
+        <label>Número de acompañantes
+          <input type="number" id="rsvpAcompanantes" name="acompanantes" min="0" max="10" value="0">
+        </label>
+        <label>Mensaje para los novios
+          <textarea id="rsvpMensaje" name="mensaje" rows="3" placeholder="Escribe unas palabras (opcional)"></textarea>
+        </label>
+        <button type="submit" class="btn-solido">Enviar confirmación</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <footer class="cierre">
+    <div class="contenedor">
+      <p class="cierre-texto reveal">Gracias por ser parte de los capítulos más importantes de nuestra historia. Hoy, más que nunca, celebramos el amor, la familia y la vida junto a ustedes.</p>
+      <h2 class="cierre-nombres reveal"><span class="oro-texto">Jhelmy</span> <span class="amp">&amp;</span> <span class="oro-texto">Victor</span></h2>
+      <p class="cierre-firma reveal">Con todo nuestro amor</p>
+    </div>
+  </footer>
+
+  <!-- CONTROL DE MÚSICA -->
+  <button id="btnMusica" class="btn-musica" aria-label="Reproducir música">
+    <svg id="iconoMusica" viewBox="0 0 24 24" width="20" height="20"><path d="M9 18V5l12-2v13" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+  </button>
+  <audio id="audioFondo" preload="auto">
+    <source src="Reik%20-%20Creo%20en%20Ti.mp3" type="audio/mpeg">
+  </audio>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="three-scene.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
