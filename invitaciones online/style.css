@@ -550,6 +550,28 @@ body.cursor-custom-activo summary{ cursor: none; }
   .dresscode-grid{ gap: 30px; }
   .historia-timeline::before{ left: 14px; }
   .historia-item{ width: calc(100% - 40px); margin-left: 40px !important; margin-right: 0 !important; }
+
+  /* nombres: en vez de dejar que el texto se corte solo en un lugar feo,
+     los apilamos de forma prolija y controlada */
+  .hero-names, .cierre-nombres{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    font-size: clamp(44px, 15vw, 64px);
+    line-height: 1.05;
+  }
+  .hero-names .amp, .cierre-nombres .amp{
+    font-size: .5em;
+    margin: 2px 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 360px){
+  .hero-names, .cierre-nombres{ font-size: clamp(38px, 15vw, 56px); }
+  .contador{ gap: 10px; }
+  .unidad{ min-width: 64px; padding: 12px 8px; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -557,3 +579,4 @@ body.cursor-custom-activo summary{ cursor: none; }
   .oro-texto{ animation: none; }
   .petal, .sello{ animation: none; }
 }
+
